@@ -1,5 +1,5 @@
 
--- uses the databases -- is for one-line comments 
+-- uses the databases -- is for one line comments 
 -- use classmodels tells the DB what database I want to uses
 -- what ever I do now, will affect the classicmodels database 
 
@@ -89,13 +89,20 @@ insert  into offices values ('8', 'Plano', '7773331234', '123 Street' , null , '
 delete from offices where officeCode = '8';
 
 describe offices;
-insert into offices (officeCode , city , phone , addressLine1 , country , postalCode , territory)
+insert into offices ('officeCode', 'city' , 'phone' , 'addressLine1' , 'country' , 'postalCode' , 'territory')
 values ('8', 'Plano', '7773331234', '123 Street' ,  'USA' , '12345', 'NA');
 select * from offices;
 insert into offices ('officeCode' , 'city' , 'phone' , 'addressLine1' , 'country' , 'postalCode' , 'territory')
 values ('10', 'Plano', '8883331234', '1456 Street' ,  'USA' , '67899', 'NA');
 
+use classicmodels;
+-- allows me to add data with out ticks
+insert into offices (officeCode, city , phone , addressLine1 , country , postalCode , territory)
+values ('11', 'Plano', '9993331234', '9876 Street' ,  'USA' , '99899', 'NA');
 
+-- does not allow me to make changes with ticks on fieldnames
+insert into offices ('officeCode' , 'city' , 'phone' , 'addressLine1' , 'country' , 'postalCode' , 'territory')
+values ('11', 'Plano', '9993331234', '9876 Street' ,  'USA' , '99899', 'NA');
 
 -- 
 /*
