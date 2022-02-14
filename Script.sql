@@ -1,5 +1,5 @@
 
--- uses the databases -- is for one line coments 
+-- uses the databases -- is for one line comments 
 -- use classmodels tells the DB what database I want to uses
 -- what ever I do now, will affect the classicmodels database 
 
