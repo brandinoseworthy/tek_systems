@@ -120,3 +120,106 @@ values ('123 street', 'plano', 'TX', 122);
 
 
 
+-- 2/14
+use example_db;
+
+-- drop the constraint 
+-- alter table address drop constraint some_name;
+-- add a constraint 
+-- add table address add constraint some_name foreign key(fk_emp_id) references employee(emp_id);
+
+
+-- here we joined two tables together - this is an inner joined 
+Select *
+--  left table
+From employee 
+-- right table
+Join address on employee.emp_id = address.fk_emp_id ;
+
+/* 
+ * mp_id|name |age|address_id|address_street|city |state|timestampt             |fk_emp_id|
+-----+-----+---+----------+--------------+-----+-----+-----------------------+---------+
+    2|jafer|  1|         1|123 street    |plano|TX   |2022-02-14 05:49:12.000|        2|
+ * 
+ */
+
+-- practiving Group By with classicmodels 
+use classicmodels;
+-- we see that there are repeating values 
+select * from orders as o;
+
+-- Group by - group something that repeats and put it together
+-- i.e. we have some dates that are the same 
+select status 
+from orders 
+group by status; 
+/*
+ * status    |
+----------+
+Cancelled |
+Disputed  |
+In Process|
+On Hold   |
+Resolved  |
+Shipped   |
+ */
+
+-- now  I want to know HOW MANY each one of these appeared
+
+select status, count(status) 
+from orders 
+group by status; 
+
+/*
+ * 
+ 
+ * tatus    |count(status)|
+---------+-------------+
+ancelled |            6|
+isputed  |            3|
+n Process|            6|
+n Hold   |            4|
+esolved  |            4|
+hipped   |          303|
+*/
+
+
+-- gave count(status) alias for readibility 
+-- again I can not have tickers.... for second counter 
+select status, count(status) as 'counter' 
+from orders 
+group by status
+having counter > 4 ; 
+
+
+-- show orderdetails table 
+
+select * from orderdetails;
+
+use example_db ;
+
+select address_id, DATE_FORMAT(TIMESTAMP, '%Y')
+from address;
+
+/*
+ * address_id|DATE_FORMAT(TIMESTAMP, '%Y')|
+----------+----------------------------+
+         1|2022                         
+*/
+
+
+-- here I selected only customer names that start with the letter A
+use classicmodels
+
+select * 
+from customers as c 
+where customerName like 'A%';
+
+/*
+**ustomerNumber|customerName                |contact
+-------------+----------------------------+-------
+          103|Atelier graphique           |Schmitt
+          114|Australian Collectors, Co.  |Ferguso
+          168|American Souvenirs Inc      |Franco 
+          187|AV Stores, Co.              |Ashwort
+*/
