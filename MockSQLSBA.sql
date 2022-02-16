@@ -153,6 +153,16 @@ join ORDERS as o on s.STORE_ID = o.STORE_ID
 group by s.NAME
 order by 2 desc;
 
+/*
+ * 
+Name                   |Order Quantity|Sales Figures|
+-----------------------+--------------+-------------+
+Bronx Location         |             3|Medium       |
+South Stamford Location|             2|Medium       |
+North Stamford Location|             1|Low          |
+Harlem Location        |             1|Low          |
+Financial District     |             1|Low          | */
+
 
 -- done, scroll below to get database and data
 
