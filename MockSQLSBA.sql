@@ -99,7 +99,7 @@ order by o.ORDER_ID asc;
  /*
   * 5. Your boss would like you to create a query that calculates the total revenue generated 
 by each item. Revenue for an item can be found as (Item Price * Total Quantity 
-Ordered). Please return the first column as ‘ITEM_NAME’ and the second column as 
+Ordered). Please return thefi first column as ‘ITEM_NAME’ and the second column as 
 ‘REVENUE’. 
   * 
   */
