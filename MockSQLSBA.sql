@@ -85,7 +85,7 @@ Where o.STORE_ID IN (
 	select store_id from STORES where city = "New York")
 order by o.ORDER_ID asc;
 
---ORDER_ID|NAME        |PRICE|QUANTITY|
+/* ORDER_ID|NAME        |PRICE|QUANTITY|
 --------+------------+-----+--------+
        1|Fries       | 1.00|       1|
        1|Hotdog      | 1.35|       2|
